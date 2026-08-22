@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# Displays all active IPv4 IP addresses on the machine
+# Displays all active IPv4 IPs on the machine
 
-ip a | grep -w inet | awk '{print $2}' | cut -d/ -f1
+ifconfig | grep -oP '(?<=inet\s)\d+(\.\d+){3}'
